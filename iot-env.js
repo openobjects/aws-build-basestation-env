@@ -81,7 +81,7 @@ iot.createKeysAndCertificate({
   }
 });
 
-var topicRuleParams = {
+var rules = [{
         topicRulePayload: {
             "sql": "SELECT * FROM '#'",
             "ruleDisabled": false,
@@ -95,9 +95,33 @@ var topicRuleParams = {
             ]
         },
         "ruleName": "callSNSTopicRule"
-    };
-iot.createTopicRule(topicRuleParams, function(err, data) {
-  if (err) console.log(err, err.stack); // an error occurred
-  else     console.log(data);           // successful response
-});
+    },
+    {
+        topicRulePayload: {
+        "sql": "SELECT * FROM '#'",
+        "ruleDisabled": false,
+        "actions": [
+            {
+                "dynamoDB": {
+                    "hashKeyField": "key",
+                    "roleArn": "arn:aws:iam::824411538776:role/iot-actions-role",
+                    "tableName": "callQueue",
+                    "hashKeyValue": "${topic(1)}",
+                    "rangeKeyValue": "${timestamp()}",
+                    "rangeKeyField": "timestamp"
+                }
+            }
+        ] },
+        "ruleName": "saveToDynamoDB"
+    }];
+    
+rules.forEach(function(topicRuleParams) {
+    console.log(topicRuleParams);
+    
+    iot.createTopicRule(topicRuleParams, function(err, data) {
+    if (err) console.log(err, err.stack); // an error occurred
+    else     console.log(data);           // successful response
+    });
+}, this);
+    
 };

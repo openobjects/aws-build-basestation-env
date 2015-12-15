@@ -32,7 +32,8 @@
     "iot"
   ],
   "dependencies": {
-    "aws-sdk": "2.x.x"
+    "aws-sdk": "2.x.x",
+    "q": "1.4.1"
   },
   "devDependencies": {
   },
