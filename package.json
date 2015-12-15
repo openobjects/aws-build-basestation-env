@@ -1,0 +1,48 @@
+{
+  "name": "aws-build-basestation-env",
+  "description": "Build script for the OpenObjects AWS IoT base station environment",
+  "version": "0.0.1",
+  "author": {
+    "name": "Florin Uifelean",
+    "url": "http://openobjects.uifelean.co.uk"
+  },
+  "homepage": "https://github.com/openobjects/aws-build-basestation-env",
+  "contributors": [
+    {
+      "name": "Florin Uifelean",
+      "email": "florin_uifelean@yahoo.com"
+    }
+  ],
+  "main": "index.js",
+  "engines": {
+    "node": ">=0.8.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/openobjects/aws-build-basestation-env.git"
+  },
+  "bugs": {
+    "url": "http://github.com/openobjects/aws-build-basestation-env/issues"
+  },
+  "license": "Apache-2.0",
+  "keywords": [
+    "api",
+    "amazon",
+    "aws",
+    "iot"
+  ],
+  "dependencies": {
+    "aws-sdk": "2.x.x"
+  },
+  "devDependencies": {
+  },
+  "scripts": {
+  },
+  "maintainers": [
+    {
+      "name": "Florin Uifelean",
+      "email": "florin_uifelean@yahoo.com"
+    }
+  ],
+  "directories": {}
+}
